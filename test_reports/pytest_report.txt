@@ -1,0 +1,239 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.3, pytest-8.2.1, pluggy-1.5.0
+rootdir: C:\Users\mosai\OneDrive\Desktop\secure_app
+collected 7 items
+
+tests\test_app.py .FFFFFF                                                [100%]
+
+================================== FAILURES ===================================
+_______________________________ test_user_login _______________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_user_login(client):
+        client.post('/register', json={"username": "testuser", "password": "testpass"})
+>       response = client.post('/login', json={"username": "testuser", "password": "testpass"})
+
+tests\test_app.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+env\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+env\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+env\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+env\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+env\Lib\site-packages\flask\app.py:1498: in __call__
+    return self.wsgi_app(environ, start_response)
+env\Lib\site-packages\flask\app.py:1476: in wsgi_app
+    response = self.handle_exception(e)
+env\Lib\site-packages\flask_restful\__init__.py:298: in error_router
+    return original_handler(e)
+env\Lib\site-packages\flask_restful\__init__.py:295: in error_router
+    return self.handle_error(e)
+env\Lib\site-packages\flask_restful\__init__.py:310: in handle_error
+    _handle_flask_propagate_exceptions_config(current_app, e)
+env\Lib\site-packages\flask\app.py:1473: in wsgi_app
+    response = self.full_dispatch_request()
+env\Lib\site-packages\flask\app.py:882: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+env\Lib\site-packages\flask_restful\__init__.py:298: in error_router
+    return original_handler(e)
+env\Lib\site-packages\flask_restful\__init__.py:295: in error_router
+    return self.handle_error(e)
+env\Lib\site-packages\flask_restful\__init__.py:310: in handle_error
+    _handle_flask_propagate_exceptions_config(current_app, e)
+env\Lib\site-packages\flask\app.py:880: in full_dispatch_request
+    rv = self.dispatch_request()
+env\Lib\site-packages\flask\app.py:865: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+env\Lib\site-packages\flask_restful\__init__.py:493: in wrapper
+    return self.make_response(data, code, headers=headers)
+env\Lib\site-packages\flask_restful\__init__.py:522: in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+env\Lib\site-packages\flask_restful\representations\json.py:21: in output_json
+    dumped = dumps(data, **settings) + "\n"
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py:238: in dumps
+    **kw).encode(obj)
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:202: in encode
+    chunks = list(chunks)
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:439: in _iterencode
+    o = _default(o)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.encoder.JSONEncoder object at 0x000001D87EFD8C80>
+o = <Response 39 bytes [200 OK]>
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+>       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type Response is not JSON serializable
+
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:180: TypeError
+________________________________ test_user_2fa ________________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_user_2fa(client):
+        client.post('/register', json={"username": "testuser", "password": "testpass"})
+>       client.post('/login', json={"username": "testuser", "password": "testpass"})
+
+tests\test_app.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+env\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+env\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+env\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+env\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+env\Lib\site-packages\flask\app.py:1498: in __call__
+    return self.wsgi_app(environ, start_response)
+env\Lib\site-packages\flask\app.py:1476: in wsgi_app
+    response = self.handle_exception(e)
+env\Lib\site-packages\flask_restful\__init__.py:298: in error_router
+    return original_handler(e)
+env\Lib\site-packages\flask_restful\__init__.py:295: in error_router
+    return self.handle_error(e)
+env\Lib\site-packages\flask_restful\__init__.py:310: in handle_error
+    _handle_flask_propagate_exceptions_config(current_app, e)
+env\Lib\site-packages\flask\app.py:1473: in wsgi_app
+    response = self.full_dispatch_request()
+env\Lib\site-packages\flask\app.py:882: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+env\Lib\site-packages\flask_restful\__init__.py:298: in error_router
+    return original_handler(e)
+env\Lib\site-packages\flask_restful\__init__.py:295: in error_router
+    return self.handle_error(e)
+env\Lib\site-packages\flask_restful\__init__.py:310: in handle_error
+    _handle_flask_propagate_exceptions_config(current_app, e)
+env\Lib\site-packages\flask\app.py:880: in full_dispatch_request
+    rv = self.dispatch_request()
+env\Lib\site-packages\flask\app.py:865: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+env\Lib\site-packages\flask_restful\__init__.py:493: in wrapper
+    return self.make_response(data, code, headers=headers)
+env\Lib\site-packages\flask_restful\__init__.py:522: in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+env\Lib\site-packages\flask_restful\representations\json.py:21: in output_json
+    dumped = dumps(data, **settings) + "\n"
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py:238: in dumps
+    **kw).encode(obj)
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:202: in encode
+    chunks = list(chunks)
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:439: in _iterencode
+    o = _default(o)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.encoder.JSONEncoder object at 0x000001D87F917FB0>
+o = <Response 39 bytes [200 OK]>
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+>       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type Response is not JSON serializable
+
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:180: TypeError
+______________________________ test_create_user _______________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_create_user(client):
+        response = client.post('/user', json={"name": "John", "age": 30, "occupation": "Engineer", "role": "customer"})
+>       assert response.status_code == 201
+E       assert 404 == 201
+E        +  where 404 = <WrapperTestResponse streamed [404 NOT FOUND]>.status_code
+
+tests\test_app.py:32: AssertionError
+________________________________ test_get_user ________________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_get_user(client):
+        client.post('/user', json={"name": "John", "age": 30, "occupation": "Engineer", "role": "customer"})
+        response = client.get('/user/John')
+>       assert response.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <WrapperTestResponse streamed [401 UNAUTHORIZED]>.status_code
+
+tests\test_app.py:39: AssertionError
+______________________________ test_update_user _______________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_update_user(client):
+        client.post('/user', json={"name": "John", "age": 30, "occupation": "Engineer", "role": "customer"})
+        response = client.put('/user/John', json={"name": "John", "age": 31, "occupation": "Senior Engineer", "role": "customer"})
+>       assert response.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <WrapperTestResponse streamed [401 UNAUTHORIZED]>.status_code
+
+tests\test_app.py:46: AssertionError
+______________________________ test_delete_user _______________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_delete_user(client):
+        client.post('/user', json={"name": "John", "age": 30, "occupation": "Engineer", "role": "customer"})
+        response = client.delete('/user/John')
+>       assert response.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <WrapperTestResponse streamed [401 UNAUTHORIZED]>.status_code
+
+tests\test_app.py:53: AssertionError
+============================== warnings summary ===============================
+env\Lib\site-packages\flask_limiter\extension.py:333
+  C:\Users\mosai\OneDrive\Desktop\secure_app\env\Lib\site-packages\flask_limiter\extension.py:333: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_app.py::test_user_login - TypeError: Object of type Respons...
+FAILED tests/test_app.py::test_user_2fa - TypeError: Object of type Response ...
+FAILED tests/test_app.py::test_create_user - assert 404 == 201
+FAILED tests/test_app.py::test_get_user - assert 401 == 200
+FAILED tests/test_app.py::test_update_user - assert 401 == 200
+FAILED tests/test_app.py::test_delete_user - assert 401 == 200
+=================== 6 failed, 1 passed, 1 warning in 0.38s ====================

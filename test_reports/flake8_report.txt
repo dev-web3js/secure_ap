@@ -1,0 +1,30 @@
+app.py:4:1: F401 'flask_jwt_extended.create_access_token' imported but unused
+app.py:4:80: E501 line too long (94 > 79 characters)
+app.py:19:80: E501 line too long (97 > 79 characters)
+app.py:20:80: E501 line too long (97 > 79 characters)
+app.py:45:80: E501 line too long (80 > 79 characters)
+app.py:47:80: E501 line too long (92 > 79 characters)
+app.py:48:80: E501 line too long (97 > 79 characters)
+app.py:51:80: E501 line too long (86 > 79 characters)
+app.py:52:80: E501 line too long (90 > 79 characters)
+app.py:53:80: E501 line too long (100 > 79 characters)
+app.py:56:80: E501 line too long (100 > 79 characters)
+app.py:57:80: E501 line too long (89 > 79 characters)
+app.py:60:80: E501 line too long (89 > 79 characters)
+app.py:61:80: E501 line too long (89 > 79 characters)
+app.py:62:80: E501 line too long (89 > 79 characters)
+app.py:65:1: E302 expected 2 blank lines, found 1
+app.py:67:5: F841 local variable 'data' is assigned to but never used
+app.py:71:1: E302 expected 2 blank lines, found 1
+app.py:122:1: E302 expected 2 blank lines, found 1
+app.py:125:80: E501 line too long (94 > 79 characters)
+app.py:146:80: E501 line too long (94 > 79 characters)
+app.py:165:80: E501 line too long (83 > 79 characters)
+app.py:168:1: E302 expected 2 blank lines, found 1
+app.py:172:80: E501 line too long (102 > 79 characters)
+app.py:187:80: E501 line too long (82 > 79 characters)
+app.py:190:1: E302 expected 2 blank lines, found 1
+app.py:205:80: E501 line too long (94 > 79 characters)
+app.py:208:1: E302 expected 2 blank lines, found 1
+app.py:230:80: E501 line too long (115 > 79 characters)
+app.py:233:1: E305 expected 2 blank lines after class or function definition, found 1
